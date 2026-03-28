@@ -1,8 +1,6 @@
 # Overview
 
-This project is a CRUD API where a frontend or UI can fetch to manage appointments. The software allows admins to manageme appointments such as setting appointments, updatind the status of an appointment, delete an appointment, and display the overall or just for the day's appointments.
-
-
+This project is a CRUD API which a frontend or UI can fetch to manage appointments. The software allows admins to manage appointments such as setting appointments, updating the status of an appointment, delete an appointment, and display the overall or just for the day's appointments.
 
 # Development Environment
 

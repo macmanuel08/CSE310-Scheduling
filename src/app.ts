@@ -9,7 +9,7 @@ async function testAPI() {
   await api.deleteAppointment(8);
 
   const data = await api.getAll();
-  //console.log(data.schedules);
+  console.log(data.schedules);
 
   const todayAppointments = api.getAppointmentsToday(data.schedules);
   //console.log(todayAppointments);
