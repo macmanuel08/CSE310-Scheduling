@@ -1,5 +1,4 @@
 import express, { Request, Response } from "express";
-import { readFile } from "fs/promises";
 
 const app = express();
 const PORT = 3000;
@@ -92,6 +91,7 @@ const data = {
   ]
 }
 
+// GET request to send all data to the client
 app.get('/', async (req: Request, res: Response) => {
     try {
         res.send(JSON.stringify(data));
@@ -104,8 +104,9 @@ app.get('/', async (req: Request, res: Response) => {
     }
 });
 
+// POST request to add an appointment to JSON data
+// id, date, personId, time should be provided in the HTTP request body
 app.post('/', async (req: Request, res: Response) => {
-
     const { id, date, personId, time } = req.body;
 
     try {
@@ -132,6 +133,8 @@ app.post('/', async (req: Request, res: Response) => {
     });
 });
 
+// PATCH request to handle update the status of an appointment. It needs id of an appointment to update as a parameter
+// status as a string ('pending', 'confirmed', 'canceled', 'completed') should be provided in the HTTP request body
 app.patch('/:id', (req: Request, res: Response) => {
   const id = Number(req.params.id);
   const { status } = req.body;
@@ -159,6 +162,8 @@ app.patch('/:id', (req: Request, res: Response) => {
   }
 });
 
+// DELETE request to remove an appointment from the JSON
+// id of an appointment as a parameter is needed
 app.delete('/:id', (req: Request, res: Response) => {
   const id = Number(req.params.id);
   try {
